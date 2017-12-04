@@ -56,14 +56,15 @@ import com.rey.material.widget.RadioButton;
 
 import java.util.Calendar;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Unbinder;
 import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends AppCompatActivity
         implements
         TagChooseFragment.OnTagItemSelectedListener {
-
+    private Unbinder mUnbinder;
     private final int SETTING_TAG = 0;
 
     private Context mContext;
@@ -129,11 +130,11 @@ public class MainActivity extends AppCompatActivity
 
     private AppUpdateManager appUpdateManager;
 
-    @InjectView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.root)
+    @BindView(R.id.root)
     FrameLayout root;
-    @InjectView(R.id.content_hamburger)
+    @BindView(R.id.content_hamburger)
     View contentHamburger;
 
     private SensorManager sensorManager;
@@ -258,7 +259,7 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
 
-        ButterKnife.inject(this);
+        mUnbinder = ButterKnife.bind(this);
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -729,6 +730,7 @@ public class MainActivity extends AppCompatActivity
         if (sensorManager != null) {
             sensorManager.unregisterListener(listener);
         }
+        mUnbinder.unbind();
         super.onDestroy();
     }
 

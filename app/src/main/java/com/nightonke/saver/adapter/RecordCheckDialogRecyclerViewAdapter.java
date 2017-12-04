@@ -17,13 +17,15 @@ import com.nightonke.saver.util.CoCoinUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+import butterknife.Unbinder;
 
 /**
  * Created by 伟平 on 2015/11/1.
  */
 public class RecordCheckDialogRecyclerViewAdapter extends RecyclerView.Adapter<RecordCheckDialogRecyclerViewAdapter.viewHolder> {
+    private Unbinder mUnbinder;
 
     private OnItemClickListener onItemClickListener;
 
@@ -83,22 +85,22 @@ public class RecordCheckDialogRecyclerViewAdapter extends RecyclerView.Adapter<R
     }
 
     public class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @InjectView(R.id.image_view)
+        @BindView(R.id.image_view)
         ImageView imageView;
-        @InjectView(R.id.date)
+        @BindView(R.id.date)
         TextView date;
-        @InjectView(R.id.remark)
+        @BindView(R.id.remark)
         TextView remark;
-        @InjectView(R.id.money)
+        @BindView(R.id.money)
         TextView money;
-        @InjectView(R.id.index)
+        @BindView(R.id.index)
         TextView index;
-        @InjectView(R.id.material_ripple_layout)
+        @BindView(R.id.material_ripple_layout)
         MaterialRippleLayout layout;
 
         viewHolder(View view) {
             super(view);
-            ButterKnife.inject(this, view);
+            mUnbinder = ButterKnife.bind(this, view);
         }
 
         @Override

@@ -7,13 +7,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "com.nightonke.cocoin"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode 1
         versionName "1.2.0"
         // when update version, don't forget change the application class and @string/app_splash_name
@@ -32,7 +32,8 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
 
     // animation
     compile 'com.nineoldandroids:library:2.4.0'
@@ -45,8 +46,9 @@ dependencies {
     // material edittext
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
 
-    // butterknife
-    compile 'com.jakewharton:butterknife:6.1.0'
+    //以下使用ButterKnife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     // material viewpager
     compile ('com.github.florent37:materialviewpager:1.1.2@aar'){
@@ -134,7 +136,6 @@ dependencies {
     }
 
 }
-
 bugly {
     appId = '900018935'
     appKey = 'jtmCjcTp0DZuptCW'
